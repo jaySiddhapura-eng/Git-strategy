@@ -1,6 +1,6 @@
 # Git
 
-## Basic git commands
+## First Time Git Setup
 
 1. Initialize local repository
 
@@ -18,7 +18,13 @@
    git add .  #to add all the files to index 
    ~~~
 
-3. Committing the changes in Index
+3. Add user config
+
+   ~~~powershell
+   ## fill it
+   ~~~
+
+4. Committing the changes in Index
 
    [git commit documentation](https://git-scm.com/docs/git-commit)
 
@@ -26,7 +32,7 @@
    git commit
    ~~~
 
-4. Remote repository commands
+5. Remote repository commands
 
    [Git remote documentation](https://git-scm.com/docs/git-remote)
 
@@ -63,7 +69,7 @@
    git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)…​]
    ~~~
 
-5. Cloning the repository from remote server
+6. Cloning the repository from remote server
 
    [Git clone documentation](https://git-scm.com/docs/git-clone)
 
@@ -71,22 +77,43 @@
    git clone
    ~~~
 
-6. .gitIgnore
+7. .gitIgnore
 
    [Git ignore documentation](https://www.atlassian.com/git/tutorials/saving-changes/gitignore)
 
    Creating Gitignore file in windows
 
    ~~~powershell
-   # 1 # create gitignore.txt file
-   # 2 # edit this file
-   # 3 # open this file in CMD
-   # 4 # rename it to .gitignore
+   ### When file is already not tracked 
+   # 1 # create .gitignore file
+   nano .gitignore
+   # 2 # edit the .gitignore file [add the file which need to be ignored]
+   # 3 # save it, in further commits it will not be tracked
+   
+   ### Add file in to gitignore which is already tracked
+   #conside secondIgnore.txt is previously tracked
+   
+   # 1 # add that file into .gitignore using text editor
+   # 2 # remove the secondIgnore.txt file from index with following command
+   git rm --cached secondIgnore.txt
+   
+   # 3 # check the index status
+   git status
+   >> modified:   .gitignore
+   >> deleted:    secondIgnore.txt
+   
+   # 4 # update the .gitignore in index
+   git add .gitignore
+   git commit  # add the commit msg in text
    ~~~
 
-   
+8. Restored the staged file to unstaged area in index
 
-7. 
+   ~~~powershell
+   git restore --staged <file>
+   ~~~
+
+9. 
 
    
 
