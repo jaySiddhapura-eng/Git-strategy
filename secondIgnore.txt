@@ -1,2 +1,0 @@
-this file will be added/commited
-then remove from the commit index to add it into gitignore
