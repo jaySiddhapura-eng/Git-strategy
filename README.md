@@ -18,10 +18,29 @@
    git add .  #to add all the files to index 
    ~~~
 
-3. Add user config
+3. Add user client config
+
+   [Git configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
+
+   [Writting good commits](https://medium.com/compass-true-north/writing-good-commit-messages-fc33af9d6321)
+
+   [custom git commit template](https://backlog.com/blog/git-commit-messages-bold-daring/)
 
    ~~~powershell
-   ## fill it
+   # to list out all the git config
+   git config --list
+   
+   # to find the location of all the configuration
+   git config --list --show-origin
+   
+   # add user name
+   git config --global user.name "User Name"
+   
+   # add user email
+   git config --global user.email userEmail@demo.com
+   
+   # configure default commit message 
+   
    ~~~
 
 4. Committing the changes in Index
