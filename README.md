@@ -4,7 +4,7 @@
 
 1. Initialize local repository
 
-   ~~~powershell
+   ~~~bash
    git init
    #nevigate to the project folder on which versioning need to be done
    ~~~
@@ -13,7 +13,7 @@
 
    [Git add documentation](https://git-scm.com/docs/git-add)
 
-   ~~~powershell
+   ~~~bash
    git add <file>  # to add one file to index
    git add .  #to add all the files to index 
    ~~~
@@ -26,7 +26,7 @@
 
    [custom git commit template](https://backlog.com/blog/git-commit-messages-bold-daring/)
 
-   ~~~powershell
+   ~~~bash
    # to list out all the git config
    git config --list
    
@@ -40,14 +40,19 @@
    git config --global user.email userEmail@demo.com
    
    # configure default commit message 
+   # create the .gitmessage in root directory
+   nano .gitmessage # to create the file, copy the "template" of this diretory in .gitmessage file
    
+   # check whether template set successfully
+   git config commit.template
+   output >> .\.gitmessage  # then commit message template is set correctly
    ~~~
 
 4. Committing the changes in Index
 
    [git commit documentation](https://git-scm.com/docs/git-commit)
 
-   ~~~powershell
+   ~~~bash
    git commit
    ~~~
 
@@ -55,7 +60,7 @@
 
    [Git remote documentation](https://git-scm.com/docs/git-remote)
 
-   ~~~powershell
+   ~~~bash
    
    git push #push the changes to the remote repo
    git pull #pull changes from remote repo
@@ -92,7 +97,7 @@
 
    [Git clone documentation](https://git-scm.com/docs/git-clone)
 
-   ~~~powershell
+   ~~~bash
    git clone
    ~~~
 
@@ -102,7 +107,7 @@
 
    Creating Gitignore file in windows
 
-   ~~~powershell
+   ~~~bash
    ### When file is already not tracked 
    # 1 # create .gitignore file
    nano .gitignore
@@ -128,7 +133,7 @@
 
 8. Restored the staged file to unstaged area in index
 
-   ~~~powershell
+   ~~~bash
    git restore --staged <file>
    ~~~
 
