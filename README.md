@@ -190,7 +190,7 @@
 
 5. Change the head to branch B1 and commit changes at branch B1
 
-   ~~~bash
+   ~~~powershell
    $ git checkout B1 		# change Head from master to B1
    $ git branch   # to confirm the Head is on B1
    
