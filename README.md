@@ -119,6 +119,7 @@
    
    $ git push #push the changes to the remote repo
    $ git pull #pull changes from remote repo
+   # fetc+merge is reccomended 
    
    $ git remote [-v | --verbose] #list all remote repo [push and pull]
    
@@ -170,7 +171,7 @@
    # HEAD represents on which branch you are now [we are on master]
    ~~~
 
-   <img src="assets/onlyMaster.PNG" alt="After initializing the Git in directory" style="zoom:67%;" />
+   ![After initializing the Git in directory](assets/onlyMaster.PNG)
 
 4. Adding branch B1
 
@@ -184,6 +185,11 @@
    
    $ git add masterDoc1	 # this doc will be reflected only on master branch
    $ git commit			# this commit will be indexed on master branch
+   
+   # to check how many branches are in remote
+   $ git branch -r
+   >>	origin/B1
+     	origin/master
    ~~~
 
    ![Branch added but changes did not reflect on it](assets/masterDoc1onMasterBranch.png)
@@ -244,50 +250,198 @@
    	B1doc3  
    	doc1  
    	doc2
-   Branch : B3
+   Branch : B2
    	B2doc3
        doc1  
        masterDoc1
    ~~~
 
-8. Merge branch B1 into B2
+## Merging
+
+1. Merge the branches [3 -way merge]
+
+   [git merge tutorial](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
 
    ~~~bash
-   B2 will be base branch
+   $ git checkout "RECEIVING BRANCH"  # eg. master
+   $ git merge "SENDING BRANCH" # eg. B1
+   # merge always update the current branch where is head present
+   ~~~
+
+   Example 
+
+   ~~~bash
+   # merge the branch B2 in to B1
+   [B2] => [B1]
    
-   # bring the head to the branch which need to be merge into base branch
-   # in our case Head will be on B1
+   # 1 # confirm the receiving branch in our case B1
+   $ git branch
+   >> B1
+      *B2			// star means head is on B2
+      master
    
+   # 2 # if head is not on receiving branch then perform the checkout 
    $ git checkout B1
+   
+   # 3 # Update the receiving branch with all the latest commits
+   # which are made on the receiving branch
+   $ git fatch
+   $ git pull
+   
+   # Now receiving branch is ready to recceive the merge
+   
+   # 4 # perform the mearg
+   $ git merge B2
+   
+   # 5 # feature added on branch B1
+   $ git add 
+   $ git commit -m "new feature added o branch B1"
+   
+   # 6 # now merge the latest B1 branch into master
+   [B1] => [master]
+   $ git checkout master
+   $ git merge B1
+   ~~~
+
+   ![B2 -> B1 , B1 -> master ](assets/mergeOP.PNG)
+
+2. content of all the branches after [B2 -> B1 merge]
+
+   ~~~bash
+   # comppare it with section 7
+   Branch : Master
+   	doc1  
+   	masterDoc1  
+   	Mdoc4
+   Branch : B1
+   	B1doc3
+   	"B2doc3" 
+   	doc1       
+   	doc2      
+   	"masterDoc1" 
+   Branch : B2			
+   	doc1             
+       masterDoc1 
+       B2doc3 
+   ~~~
+
+3. Content of all the branches after [B1 -> master merge]
+
+   ~~~bash
+   Branch : Master
+   	doc1  
+   	masterDoc1  
+   	Mdoc4
+   	"B1doc3"  
+   	"B2doc3"
+   	"doc2"
+   Branch : B1
+   	B1doc3
+   	B2doc3 
+   	doc1       
+   	doc2      
+   	masterDoc1 
+   Branch : B2			
+   	doc1             
+       masterDoc1 
+       B2doc3 
+   ~~~
+
+4. Fast Forward Merging 
+
+   Fast forward merging occures when there is a linear path from current branch to the target branch
+
+   Before fast forward merging
+
+   ![Before fast forward merging](assets/beforeFastForwardingMerge.PNG)
+
+   After fast forward merging
+
+   ![After fast forward merging](assets/afterFastForwardingMerge.PNG)
+
+5. Merging from remote branch
+
+   Consider you are in Branch B1 on local repository, and someone made changes in branch B2 located on remote repo and you want to have that changes on the branch B1 of the local repo,  consider following procedure
+
+   ~~~bash
+   $ git branch		# show all the branches on local repo
+   >> B1
+   >> B2
+   >> *master
+   
+   $ git branch -r      # show all the branches on remote repo
+   >> origin/B1
+   >> origin/B2
+   >> origin/master
+   
+   ## to take the changes happened on origin/B2 and put it on B1
+   $ git checkout B1
+   
+   $ git fetch origin B2 	# will fetch the changes made at origin/B2 into local repo
+   $ git merge origin/B2
+   
+   # put this one in git fetch vs merge
+   ~~~
+
+   
+
+## Resolving merge conflicts
+
+1. [Detail on merge conflict](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
+
+2. Conflict occures when the two branches you are trying to merge, both changed the same part of the same file
+
+3. git unable to resolve such conflicts, hence conflicts need to resolve manually
+
+4. Two types of merge conflicts 
+
+   1. **Git failed to start the merge** : due to untracked changes in working branch
+   2. **Git failed during the merge** : due to conflict between branches which are being merged
+
+5. Git will try the best to resolve the second kind of conflicts.
+
+6. In extreme case this merge need to be resolve manually
+
+7. How git represent the merge conflict
+
+   ~~~bash
+   $ git status
+   On branch master
+   You have unmerged paths.
+   (fix conflicts and run "git commit")
+   (use "git merge --abort" to abort the merge)
+   Unmerged paths:
+   (use "git add <file>..." to mark resolution)
+   both modified:   "file who has conflict"
+   
+   $ nano " file which has conflict"
+   <<<<<<< HEAD
+   # content that exist in current branch [eg. master]
+   # head is indication that this text is in target brancch
+   =======
+   # this content is in the branch which need to be merge to the target branch  
+   >>>>>>> "mergingBranch"
    
    ~~~
 
-9. 
+## Fetch vs. Pull
 
-10. 
+Pull: **retrieve the changes** which are happen on remote repo and **apply it** directly to the local repo
 
-11. 
+Fetch: Only **retrieve the changes** which are happen on remote repo but **does not apply** it on local repo
 
-    ~~~bash
-    
-    ~~~
+~~~bash
 
-    
-
-    
+~~~
 
 
 
+Anything special with push ?
 
+Difference between fork and clone ?
 
+difference between fetch and pull
 
+difference between merge and squash rebase 
 
-
-
-Branching and management commands
-
-what is fork ?
-
-local and remote repo
-
-Strategies
+workflow Strategies
