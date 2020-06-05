@@ -170,7 +170,7 @@
    # HEAD represents on which branch you are now [we are on master]
    ~~~
 
-   ![After initializing the Git in directory](assets\onlyMaster.PNG)
+   ![After initializing the Git in directory](assets/onlyMaster.PNG)
 
 4. Adding branch B1
 
@@ -186,7 +186,7 @@
    $ git commit			# this commit will be indexed on master branch
    ~~~
 
-   ![Branch added but changes did not reflect on it](assets\masterDoc1onMasterBranch.png)
+   ![Branch added but changes did not reflect on it](assets/masterDoc1onMasterBranch.png)
 
 5. Change the head to branch B1 and commit changes at branch B1
 
@@ -205,7 +205,7 @@
    $ git commit
    ~~~
 
-   ![Above operation](assets\fileaddedAtB1.PNG)
+   ![Above operation](assets/fileaddedAtB1.PNG)
 
 6. Lets add one more branch from master
 
@@ -231,7 +231,7 @@
    
    ~~~
 
-   ![Branch B2 added](assets\B2added.PNG)
+   ![Branch B2 added](assets/B2added.PNG)
 
 7. Content of all the branches
 
