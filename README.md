@@ -170,7 +170,7 @@
    # HEAD represents on which branch you are now [we are on master]
    ~~~
 
-   ![After initializing the Git in directory](assets/onlyMaster.PNG)
+   <img src="assets/onlyMaster.PNG" alt="After initializing the Git in directory" style="zoom:67%;" />
 
 4. Adding branch B1
 
@@ -259,7 +259,7 @@
    # in our case Head will be on B1
    
    $ git checkout B1
-   merging is already done in the web tool
+   
    ~~~
 
 9. 
