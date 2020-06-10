@@ -379,10 +379,7 @@
    
    $ git fetch origin B2 	# will fetch the changes made at origin/B2 into local repo
    $ git merge origin/B2
-   
-   # put this one in git fetch vs merge
    ~~~
-
    
 
 ## Resolving merge conflicts
@@ -424,24 +421,160 @@
    
    ~~~
 
+## Detached Head
+
+1. Git checkout command bring the head to the latest commit of the mentioned branch
+
+2. By Detached Head method user can navigate on the branch on the basis of mentioned commit
+
+3. By specifying the SHA1 hash of a specific commit you can access that commit
+
+4. This method is called [detached head](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)
+
+   ~~~bash
+   # bring the head to the specified branch
+   $ git checkout "branch name"
+   
+   # bring the head to the sspecified COMMIT of that branch
+   $ git checkout "SHA1 of commit"
+   $ git checkout "56a4e5c08"
+   ~~~
+
 ## Fetch vs. Pull
 
-Pull: **retrieve the changes** which are happen on remote repo and **apply it** directly to the local repo
+1. [Pull](https://www.atlassian.com/git/tutorials/syncing/git-pull): **retrieve the changes** which are happen on remote repo and **apply it** directly to the local repo
 
-Fetch: Only **retrieve the changes** which are happen on remote repo but **does not apply** it on local repo
+2. [Fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch): Only **retrieve the changes** which are happen on remote repo but **does not apply** it on local repo
 
-~~~bash
+3. [How to see the differences between fetched data and data of current repo](https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/diffs)
 
-~~~
+   ~~~bash
+   $ git  fetch
+   $ git diff "localBranch".."origin/RemoteBranch"
+   # Example 1: [local B1] diff [remote B1]
+   $ git diff B1..origin/B1 
+   # it will show the difference between local B1 branch and remote B1 branch
+   
+   # example 2: [local B1] diff [remote master]
+   $git diff B1..origin/master 
+   # it will show the difference between local B1 branch and remote master branch
+   
+   # to see the log of commits
+   $ git log
+   
+   # once fetch is executed perform merge
+   $ git merge
+   # check 5th point on merging section
+   ~~~
 
+## [Pushing to Remote Repo](https://www.atlassian.com/git/tutorials/syncing/git-push)
 
+1. Counter part of git fetch, used to transfer changes from local to remote repo
 
-Anything special with push ?
+2. Pushing has the potential to overwrite changes, caution should be taken when pushing 
 
-Difference between fork and clone ?
+3. Commands
 
-difference between fetch and pull
+   ~~~bash
+   $ git push "name of remote" "name of branch"
+   # above command will send the changes to mentioned branch of remote repo
+   # This creates a local branch in the destination repository
+   # To prevent you from overwriting commits, Git won’t let you push when it results in a non-fast-  # forward merge in the destination repository.
+   
+   $ git push "name of remote" --force
+   # even though above mentioned conditions arieses force push will push regardless of  consequences 
+   
+   ~~~
 
-difference between merge and squash rebase 
+## [Cherry Pick](https://www.atlassian.com/git/tutorials/cherry-pick)
 
-workflow Strategies
+1. Cherry picking is the act of picking a commit from a branch and applying it to another.
+
+2. Say a commit is accidently made to the wrong branch. You can switch to the correct branch and cherry-pick the commit to where it should belong.
+
+3. commands
+
+   ~~~bash
+   $ git cherry-pick "commit ref."
+   # commit ref. can be found using git log
+   
+   # 1 # bring the head to the destination branch where you want to bring the change
+   $ git checkout "destination branch"
+   
+   # 2 # perform cherry pick the commit
+   $ git cherry-pick "commit reg. regardless of branch"
+   ~~~
+
+## [Difference between fork and clone](https://opensource.com/article/17/12/fork-clone-difference)
+
+1. Fork: To "fork" means to take a copy of the project, rename it, and start a new project and community around the copy 
+
+2. Clone: To copy the remote repo to the local machine
+
+   ![Fork vs clone](assets/forkVsClone.PNG)
+
+## [Merge vs. Rebase](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+1. Both the commands are designed to integrate changes from one branch to another branch
+
+2. But they do it different way
+
+3. Merging is non destructive because the branch which got merge will still have one copy of it
+
+4. In following example after feature branch merges to master, feature branch will still be there
+
+5. Rebasing brings entire feature branch on the tip of master branch
+
+6. Rebasing results into much cleaner and perfectly linear project history
+
+7. Rebasing re write the project history, which can be potentially catastrophic for collaborative workflow
+
+8. After Merging two branches
+
+   <img src="assets/mergingTwoBranches.PNG" style="zoom: 67%;" />
+
+9. After Rebasing two branches
+
+   <img src="assets/rebasingTwoBranches.PNG" style="zoom:67%;" />
+
+## [Squashing the commit](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase-i)
+
+1. **Squashing a commit** means, from an idiomatic point of view, to move the changes introduced in said commit into its parent so that you end up with one commit instead of two (or more). 
+
+2. If you repeat this process multiple times, you can reduce *n* commit to a single one.
+
+3. Squashing on master [single branch scenario]
+
+   <img src="assets/squashingMasterBranch.PNG" alt="Squashing on master" style="zoom:67%;" />
+
+4. [interactive Rebasing](https://hackernoon.com/beginners-guide-to-interactive-rebasing-346a3f9c3a6d)
+
+   ![Interactive Rebasing](assets/interactiveRebassing.PNG)
+
+   
+
+## [Git Workflow]([https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow%20Workflow,framework%20for%20managing%20larger%20projects.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow Workflow,framework for managing larger projects.))
+
+1. A Git Workflow is a recipe or recommendation for how to use Git to accomplish work in a consistent and productive manner.
+
+2. Things to consider while evaluating workflow
+
+   1. Does this workflow scale with team size?
+   2. Is it easy to undo mistakes and errors with this workflow?
+   3. Does this workflow impose any new unnecessary cognitive overhead to the team?
+
+3. Types of workflow
+
+   1. Basic
+
+      <img src="assets/BasicWorkflow.PNG" alt="Basic flow" style="zoom:67%;" />
+
+   2. [Feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+
+      <img src="assets/featureBranch.PNG" style="zoom:67%;" />
+
+   3. [GitFlow](https://medium.com/@hengfeng/a-review-of-git-workflow-management-7f9fbebd9370)
+
+      <img src="assets/gitFlow.PNG" style="zoom: 67%;" />
+
+   4. [Forking workflow](https://docs.rhodecode.com/RhodeCode-Enterprise/collaboration/workflow-fork.html)
