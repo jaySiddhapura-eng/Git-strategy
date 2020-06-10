@@ -171,7 +171,7 @@
    # HEAD represents on which branch you are now [we are on master]
    ~~~
 
-   ![After initializing the Git in directory](assets/onlyMaster.PNG)
+   <img align="center" src="assets/onlyMaster.PNG" alt="After initializing the Git in directory" style="zoom:80%;" />
 
 4. Adding branch B1
 
@@ -192,7 +192,7 @@
      	origin/master
    ~~~
 
-   ![Branch added but changes did not reflect on it](assets/masterDoc1onMasterBranch.png)
+   <img align="center" src="assets/masterDoc1onMasterBranch.png" alt="Branch added but changes did not reflect on it" style="zoom:80%;" />
 
 5. Change the head to branch B1 and commit changes at branch B1
 
@@ -211,7 +211,7 @@
    $ git commit
    ~~~
 
-   ![Above operation](assets/fileaddedAtB1.PNG)
+   <img align="center" src="assets/fileaddedAtB1.PNG" alt="Above operation" style="zoom:80%;" />
 
 6. Lets add one more branch from master
 
@@ -237,7 +237,7 @@
    
    ~~~
 
-   ![Branch B2 added](assets/B2added.PNG)
+   <img align="center" src="assets/B2added.PNG" alt="Branch B2 added" style="zoom:80%;" />
 
 7. Content of all the branches
 
@@ -303,7 +303,7 @@
    $ git merge B1
    ~~~
 
-   ![B2 -> B1 , B1 -> master ](assets/mergeOP.PNG)
+   <img align="center" src="assets/mergeOP.PNG" alt="B2 to B1 , B1 to master " style="zoom:75%;" />
 
 2. content of all the branches after [B2 -> B1 merge]
 
@@ -353,11 +353,11 @@
 
    Before fast forward merging
 
-   ![Before fast forward merging](assets/beforeFastForwardingMerge.PNG)
+   <img align="center" src="assets/beforeFastForwardingMerge.PNG" alt="Before fast forward merging" style="zoom:80%;" />
 
    After fast forward merging
 
-   ![After fast forward merging](assets/afterFastForwardingMerge.PNG)
+   <img align="center" src="assets/afterFastForwardingMerge.PNG" alt="After fast forward merging" style="zoom:80%;" />
 
 5. Merging from remote branch
 
@@ -511,7 +511,7 @@
 
 2. Clone: To copy the remote repo to the local machine
 
-   ![Fork vs clone](assets/forkVsClone.PNG)
+   <img align="center" src="assets/forkVsClone.PNG" alt="Fork vs clone" style="zoom:80%;" />
 
 ## [Merge vs. Rebase](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
@@ -531,11 +531,11 @@
 
 8. After Merging two branches
 
-   <img src="assets/mergingTwoBranches.PNG" style="zoom: 67%;" />
+   <img align="center" src="assets/mergingTwoBranches.PNG" style="zoom: 67%;" />
 
 9. After Rebasing two branches
 
-   <img src="assets/rebasingTwoBranches.PNG" style="zoom:67%;" />
+   <img align="center" src="assets/rebasingTwoBranches.PNG" style="zoom:67%;" />
 
 ## [Squashing the commit](https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase-i)
 
@@ -545,11 +545,11 @@
 
 3. Squashing on master [single branch scenario]
 
-   <img src="assets/squashingMasterBranch.PNG" alt="Squashing on master" style="zoom:67%;" />
+   <img align="center" src="assets/squashingMasterBranch.PNG" alt="Squashing on master" style="zoom:67%;" />
 
 4. [interactive Rebasing](https://hackernoon.com/beginners-guide-to-interactive-rebasing-346a3f9c3a6d)
 
-   ![Interactive Rebasing](assets/interactiveRebassing.PNG)
+   <img align="center" src="assets/interactiveRebassing.PNG" alt="Interactive Rebasing" style="zoom: 80%;" />
 
    
 
@@ -567,14 +567,14 @@
 
    1. Basic
 
-      <img src="assets/BasicWorkflow.PNG" alt="Basic flow" style="zoom:67%;" />
+      <img align="center" src="assets/BasicWorkflow.PNG" alt="Basic flow" style="zoom:67%;" />
 
    2. [Feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 
-      <img src="assets/featureBranch.PNG" style="zoom:67%;" />
+      <img align="center" src="assets/featureBranch.PNG" style="zoom:67%;" />
 
    3. [GitFlow](https://medium.com/@hengfeng/a-review-of-git-workflow-management-7f9fbebd9370)
 
-      <img src="assets/gitFlow.PNG" style="zoom: 67%;" />
+      <img align="center" src="assets/gitFlow.PNG" style="zoom: 67%;" />
 
    4. [Forking workflow](https://docs.rhodecode.com/RhodeCode-Enterprise/collaboration/workflow-fork.html)
