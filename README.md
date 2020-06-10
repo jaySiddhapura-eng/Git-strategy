@@ -553,7 +553,7 @@
 
    
 
-## [Git Workflow]([https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow%20Workflow,framework%20for%20managing%20larger%20projects.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow%20Workflow,framework%20for%20managing%20larger%20projects.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow Workflow,framework for managing larger projects.](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow Workflow,framework for managing larger projects.))
+## [Git Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 1. A Git Workflow is a recipe or recommendation for how to use Git to accomplish work in a consistent and productive manner.
 
