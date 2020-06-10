@@ -285,7 +285,7 @@
    
    # 3 # Update the receiving branch with all the latest commits
    # which are made on the receiving branch
-   $ git fatch
+   $ git fetch
    $ git pull
    
    # Now receiving branch is ready to recceive the merge
