@@ -561,7 +561,7 @@
 
    1. Does this workflow scale with team size?
    2. Is it easy to undo mistakes and errors with this workflow?
-   3. Does this workflow impose any new unnecessary cognitive overhead to the team?
+   3. Does this workflow impose any new unnecessary cognitive overhead to the team?<br><Br>
 
 3. Types of workflow
 
